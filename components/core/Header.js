@@ -1,15 +1,12 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
-const Home = () => {
+const Header = () => {
   const { data: session } = useSession();
   if (session) {
     return (
       <>
-        username: {session.user.email}
-        <br />
-        userdata: {JSON.stringify(session.user)}
-        <br />
         Signed in as {session.user.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </>
@@ -23,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Header;
